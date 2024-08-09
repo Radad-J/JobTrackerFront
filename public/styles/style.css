@@ -89,6 +89,9 @@ header .nav .menu .menu-item a {
 header .nav .menu .menu-item a:hover {
   color: #47B8AB;
 }
+header .nav .menu .hidden-nav-item {
+  display: none;
+}
 header .nav .user-info a {
   display: flex;
   align-items: center;
@@ -114,13 +117,6 @@ header .nav .menu-toggle {
   cursor: pointer;
   margin-left: 20px;
 }
-header .nav .menu-toggle span {
-  background: #030303;
-  border-radius: 2px;
-  height: 3px;
-  margin: 4px 0;
-  width: 25px;
-}
 
 footer {
   background: #ffffff;
@@ -141,7 +137,8 @@ footer .container p {
   min-height: 70vh;
 }
 
-.main-container, .main-home-container {
+.main-container,
+.main-home-container {
   background: #47B8AB url("../images/tumblr-green.png") repeat 0 0;
   animation: 100s linear 0s normal none infinite animate;
 }
@@ -168,7 +165,7 @@ footer .container p {
   align-items: center;
   min-height: 450px;
   padding: 40px;
-  margin: 30px 0px;
+  margin: 30px 30px;
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
   width: 100%;
@@ -484,7 +481,7 @@ footer .container p {
   background: #ffffff;
   padding: 30px;
   width: 450px;
-  margin: 20px auto;
+  margin: 30px 30px;
   border-radius: 8px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   font-family: "Fira Sans", sans-serif;
@@ -496,21 +493,31 @@ footer .container p {
   font-size: 1.8rem;
   margin-bottom: 20px;
 }
-.job-info-container .job-details, .job-info-container .employer-contact, .job-info-container .application-status {
+.job-info-container .job-details,
+.job-info-container .employer-contact,
+.job-info-container .application-status {
   margin-bottom: 20px;
 }
-.job-info-container .job-details p, .job-info-container .employer-contact p, .job-info-container .application-status p {
+.job-info-container .job-details p,
+.job-info-container .employer-contact p,
+.job-info-container .application-status p {
   margin: 5px 0;
   line-height: 1.5;
 }
-.job-info-container .job-details p a, .job-info-container .employer-contact p a, .job-info-container .application-status p a {
+.job-info-container .job-details p a,
+.job-info-container .employer-contact p a,
+.job-info-container .application-status p a {
   color: #47B8AB;
   text-decoration: none;
 }
-.job-info-container .job-details p a:hover, .job-info-container .employer-contact p a:hover, .job-info-container .application-status p a:hover {
+.job-info-container .job-details p a:hover,
+.job-info-container .employer-contact p a:hover,
+.job-info-container .application-status p a:hover {
   text-decoration: underline;
 }
-.job-info-container .job-details h2, .job-info-container .employer-contact h2, .job-info-container .application-status h2 {
+.job-info-container .job-details h2,
+.job-info-container .employer-contact h2,
+.job-info-container .application-status h2 {
   color: #030303;
   font-weight: 600;
   font-size: 1.4rem;
@@ -540,22 +547,44 @@ footer .container p {
   background: #6cc6bc;
 }
 
-@media (max-width: 768px) {
-  .job-info-container {
-    padding: 15px;
+@media (max-width: 480px) {
+  header .logo img {
+    width: 200px;
   }
-  h1 {
-    font-size: 1.5rem;
-  }
-  h2 {
-    font-size: 1.2rem;
-  }
-  .update-button button {
-    padding: 8px 16px;
-    font-size: 0.9rem;
+  .profile-card {
+    width: calc(100% - 20px);
   }
 }
 @media (max-width: 768px) {
+  .nav {
+    justify-content: end !important;
+  }
+  .nav .menu {
+    visibility: hidden;
+    flex-direction: column;
+    background: #47B8AB;
+    position: fixed;
+    top: 100px;
+    right: 0px;
+    width: 180px;
+    z-index: 2;
+  }
+  .nav .menu .hidden-nav-item {
+    display: block !important;
+  }
+  .nav .menu .menu-item {
+    margin: 10px 0;
+    text-align: center;
+  }
+  .nav .menu.active {
+    display: flex;
+  }
+  .nav .menu-toggle {
+    display: block !important;
+  }
+  .nav .user-info {
+    display: none;
+  }
   .profile-card {
     padding: 15px;
     max-width: 90%;
@@ -570,13 +599,35 @@ footer .container p {
     padding: 8px;
     font-size: 0.8rem;
   }
-}
-@media (max-width: 480px) {
-  .profile-card {
-    width: calc(100% - 20px);
+  .dashboard .card {
+    width: 300px !important;
   }
-}
-@media (max-width: 768px) {
+  .search-container {
+    height: 350px;
+  }
+  .search-container .form-group {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+  }
+  .search-container .job-results-form {
+    display: grid !important;
+  }
+  .job-info-container {
+    padding: 15px;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+  .update-button button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
   .login-container {
     padding: 20px;
   }
@@ -586,29 +637,5 @@ footer .container p {
   .login-form .login-button {
     padding: 8px;
     font-size: 0.9rem;
-  }
-}
-@media (max-width: 768px) {
-  .nav .menu {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: #333;
-  }
-  .nav .menu .menu-item {
-    margin: 10px 0;
-    text-align: center;
-  }
-  .nav .menu.active {
-    display: flex;
-  }
-  .nav .menu-toggle {
-    display: flex;
-  }
-  .nav .user-info {
-    display: none;
   }
 }

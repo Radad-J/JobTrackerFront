@@ -3,48 +3,80 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="../images/favicon.png" />
     <link rel="stylesheet" href="../styles/style.css" />
     <title>Job Apply Tracker</title>
   </head>
   <body>
     <header>
       <div class="container">
-        <div class="logo"><a href="/home"><img src="../images/logo.svg" alt=""></a></div>
+        <div class="logo">
+          <a href="/home"><img src="../images/logo.svg" alt="" /></a>
+        </div>
         <nav class="nav">
           <ul class="menu">
             <% if(user){ %>
             <li class="menu-item"><a href="/home">Home</a></li>
+            <li class="menu-item hidden-nav-item">
+              <a href="/profile">Profile</a>
+            </li>
             <li class="menu-item"><a href="/addJob">New job</a></li>
             <li class="menu-item"><a href="/api/logout">Logout</a></li>
+            <% } %> <% if(!user){ %>
+            <li class="menu-item"><a href="/signup">Sign up</a></li>
+            <li class="menu-item"><a href="/login">Log in</a></li>
             <% } %>
-            <% if(!user){ %>
-              <li class="menu-item"><a href="/signup">Sign up</a></li>
-              <li class="menu-item"><a href="/login">Log in</a></li>
-              <% } %>
           </ul>
           <% if(user){ %>
           <div class="user-info">
             <a href="/profile">
-              <img src="<%= user.profilPicture ? user.profilPicture : '../images/default-avatar.png'%> %>" alt="Avatar" class="avatar" />
+              <img
+                src="<%= user.profilPicture ? user.profilPicture : '../images/default-avatar.png'%> %>"
+                alt="Avatar"
+                class="avatar"
+              />
               <span class="username"><%= user.fullname %></span>
             </a>
           </div>
           <% } %>
           <div class="menu-toggle" id="menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
+            <img class="open-menu" src="../images/icons8-menu.svg" alt="" />
+            <img class="close-menu" src="../images/icons8-close.svg" alt="" />
           </div>
         </nav>
       </div>
     </header>
 
     <script>
+      document.querySelector(".close-menu").style.display = "none";
       document
-        .getElementById("menu-toggle")
+        .querySelector(".open-menu")
         .addEventListener("click", function () {
-          document.querySelector(".menu").classList.toggle("active");
+          document.querySelector(".menu").style.visibility = "visible";
+          document.querySelector(".open-menu").style.display = "none";
+          document.querySelector(".close-menu").style.display = "flex";
         });
+
+      document.querySelector(".close-menu").style.display = "none";
+      document
+        .querySelector(".close-menu")
+        .addEventListener("click", function () {
+          document.querySelector(".menu").style.visibility = "hidden";
+          document.querySelector(".open-menu").style.display = "flex";
+          document.querySelector(".close-menu").style.display = "none";
+        });
+
+      function handleResize() {
+        if (window.innerWidth > 768) {
+          document.querySelector(".menu").style.visibility = "visible";
+        } else {
+          document.querySelector(".menu").style.visibility = "hidden";
+          document.querySelector(".open-menu").style.display = "flex";
+          document.querySelector(".close-menu").style.display = "none";
+        }
+      }
+
+      // Call handleResize when the page is first loaded
+      handleResize();
+      window.addEventListener("resize", handleResize);
     </script>
-</html>
