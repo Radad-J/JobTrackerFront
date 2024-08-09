@@ -1,0 +1,70 @@
+<%- include("./partials/header") %>
+<div class="main-container">
+  <div class="job-info-container">
+    <div class="job-title">
+      <h1><%=job.jobTitle%></h1>
+    </div>
+    <div class="job-details">
+      <p>
+        <strong>Company:</strong> <%=job.employer.name ? job.employer.name :
+        "Unavailable" %>
+      </p>
+
+      <p>
+        <strong>Expiration date:</strong> <%=job.expirationDate ?
+        new Date(job.expirationDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) : "Unavailable" %> (<%= daysDifference = Math.floor((new Date(job.expirationDate) - new Date() ) / (1000 * 60 * 60 * 24));
+        %> days left)
+      </p>
+      <p>
+        <strong>Website:</strong><%if(job.website){%>
+        <a href="<%=job.website%>" target="_blank"><%=job.website%></a
+        ><%}else{%> Unavailable <%}%>
+      </p>
+    </div>
+    <hr />
+    <div class="application-status">
+      <h2><%=job.origin%></h2>
+      <p>
+        <strong>Status:</strong> <%=job.status ? job.status : "Unavailable"%>
+      </p>
+      <p>
+        <strong>Comment:</strong> <%=job.comment ? job.comment : "Unavailable"%>
+      </p>
+    </div>
+    <hr />
+    <div class="employer-contact">
+      <h2>Contact of the employer</h2>
+      <p>
+        <strong>Email:</strong><%if(job.employer.email){%>
+        <a href="<%=job.employer.email%>" target="_blank"><%=job.employer.email%></a
+        ><%}else{%> Unavailable <%}%>
+      </p>
+      <p>
+        <strong>Phone:</strong> <%=job.employer.phoneNumber ? job.employer.phoneNumber :
+        "Unavailable" %>
+      </p>
+      <p>
+        <strong>Address:</strong> <%=job.employer.address ? job.employer.address
+        : "Unavailable"%>
+      </p>
+    </div>
+
+    <div class="update-button">
+      <button id="testUpdate">Update</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const testUpdate = document.getElementById("testUpdate");
+  // Pour récupérer l'id dans l'url
+  const url = new URL(window.location.href);
+  const queryParams = new URLSearchParams(url.search);
+  const id = queryParams.get("id");
+
+  testUpdate.addEventListener("click", (e) => {
+    window.location.href = `/updateJob/${id}`;
+  });
+</script>
+
+<%- include('./partials/footer') %>

@@ -1,0 +1,700 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200;300;400;500;600;700&family=Merienda:wght@300..900&display=swap');
+
+$primary-color : #47B8AB;
+$secondary-color: #030303;
+$third-color: #787878;
+$bg-color: #ffffff;
+
+
+$negative-color: #8d6561;
+$interested-color: #dd718e;
+$cv-sent-color: #64bfe0;
+$interview-color: #74c263;
+
+.fira-sans-extralight {
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.fira-sans-light {
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.fira-sans-regular {
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.fira-sans-medium {
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.fira-sans-semibold {
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.fira-sans-bold {
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    @extend .fira-sans-medium;
+    background: $bg-color;
+}
+
+header {
+    background: $bg-color;
+    color: $secondary-color;
+    padding: 20px 0px;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        min-height: 80px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+
+        img {
+            height: 50px;
+        }
+    }
+
+    .nav {
+        display: flex;
+        align-items: center;
+        position: relative;
+        flex-grow: 1;
+        justify-content: space-between;
+
+        .menu {
+            list-style: none;
+            display: flex;
+            flex-grow: 1;
+            justify-content: flex-end;
+
+            .menu-item {
+                margin-left: 20px;
+
+                a {
+                    text-decoration: none;
+                    color: $secondary-color;
+                    transition: color 0.3s;
+
+                    &:hover {
+                        color: $primary-color;
+                    }
+                }
+            }
+        }
+
+        .user-info a {
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+            text-decoration: none;
+
+            .avatar {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                margin-right: 10px;
+            }
+
+            .username {
+                color: $secondary-color;
+                transition: color 0.3s;
+
+                &:hover {
+                    color: $primary-color !important;
+                }
+            }
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            margin-left: 20px;
+
+            span {
+                background: $secondary-color;
+                border-radius: 2px;
+                height: 3px;
+                margin: 4px 0;
+                width: 25px;
+            }
+        }
+    }
+}
+
+footer {
+    background: $bg-color;
+    color: $secondary-color;
+    padding: 40px 0;
+
+    .container {
+        text-align: center;
+
+        p {
+            margin: 0;
+        }
+    }
+}
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+.main-container ,.main-home-container{
+
+    //background: linear-gradient(135deg, lighten($primary-color, 10%), darken($primary-color, 10%));
+        background: #47B8AB url('../images/tumblr-green.png') repeat 0 0;
+        -webkit-animation: 100s linear 0s normal none infinite animate;
+        -moz-animation: 100s linear 0s normal none infinite animate;
+        -ms-animation: 100s linear 0s normal none infinite animate;
+        -o-animation: 100s linear 0s normal none infinite animate;
+        animation: 100s linear 0s normal none infinite animate;
+     
+    }
+     
+    @-webkit-keyframes animate {
+        from {background-position:0 0;}
+        to {background-position: 500px 0;}
+    }
+     
+    @-moz-keyframes animate {
+        from {background-position:0 0;}
+        to {background-position: 500px 0;}
+    }
+     
+    @-ms-keyframes animate {
+        from {background-position:0 0;}
+        to {background-position: 500px 0;}
+    }
+     
+    @-o-keyframes animate {
+        from {background-position:0 0;}
+        to {background-position: 500px 0;}
+    }
+     
+    @keyframes animate {
+        from {background-position:0 0;}
+        to {background-position: 500px 0;}
+    
+}
+
+.main-home-container {
+    .home-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+
+.login-container,
+.add-job-container,
+.sign-up-container {
+    background: $bg-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 450px;
+    padding: 40px;
+    margin: 30px 0px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.login-form,
+.add-job-form,
+.sign-up-form {
+    width: 100%;
+
+    h1 {
+        color: $primary-color;
+        margin-bottom: 20px;
+    }
+
+    h3 {
+        color: $primary-color;
+        margin-top: 40px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+        text-align: left;
+
+        label {
+            color: $primary-color;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid $primary-color;
+            border-radius: 5px;
+            background: transparent;
+            color: $secondary-color;
+            outline: none;
+            transition: border-color 0.3s ease;
+
+            &:focus {
+                border-color: darken($primary-color, 10%);
+            }
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            //display: none; // Change to block to show error messages
+        }
+    }
+
+    .login-button,
+    .add-job-button,
+    .sign-up-button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background: $primary-color;
+        color: $bg-color;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.3s ease;
+
+        &:hover {
+            background: darken($primary-color, 10%);
+        }
+    }
+
+    p {
+        color: $third-color;
+        margin-top: 20px;
+
+        .register-link {
+            color: $primary-color;
+            text-decoration: none;
+            font-weight: bold;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    min-height: 45vh;
+    margin: 20px 0px;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: relative;
+    width: calc(25% - 20px); // Adjust for gap
+    min-width: 200px;
+    height: 170px;
+
+    h3 {
+        margin: 10px 0;
+    }
+
+    p {
+        color: #666666;
+    }
+
+    a {
+        color: #0056b3;
+        text-decoration: none;
+        margin-top: 10px;
+        display: inline-block;
+    }
+
+    .sticker {
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        padding: 5px 10px;
+        border-radius: 3px;
+        color: #ffffff;
+        font-size: 0.9rem;
+    }
+
+    &.negative .sticker {
+        background-color: $negative-color;
+    }
+
+    &.interested .sticker {
+        background-color: $interested-color;
+    }
+
+    &.cv-sent .sticker {
+        background-color: $cv-sent-color;
+    }
+
+    &.interview .sticker {
+        background-color: $interview-color;
+    }
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    height: 150px;
+
+    .job-results-form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        gap: 30px;
+        margin: 0 auto;
+        max-width: 1200px;
+
+        label {
+            color: $bg-color;
+            margin-bottom: 5px;
+        }
+
+        input,
+        select {
+            width: 150px;
+            padding: 10px;
+            border: 2px solid $bg-color;
+            border-radius: 5px;
+            background: transparent;
+            color: $bg-color;
+            outline: none;
+            transition: border-color 0.3s ease;
+            cursor: pointer;
+            &:focus {
+                border-color: darken($bg-color, 10%);
+            }
+        }
+
+        .search {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: $bg-color;
+            color: $primary-color;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+
+            &:hover {
+                background: darken($bg-color, 10%);
+            }
+        }
+    }
+}
+
+.no-jobs-found {
+    font-style: italic;
+    color: $bg-color;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: $bg-color;
+    padding-bottom: 30px;
+
+    a {
+        cursor: pointer;
+        transition: 0.3s ease;
+        &:hover {
+            color: $secondary-color;
+        }
+    }
+
+    #pageNumbers {
+        display: flex;
+        gap: 10px;
+    }
+}
+
+.profile-card {
+    background-color: $bg-color;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 600px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+
+    .card-content {
+        display: flex;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    .card-image {
+        flex: 0 0 200px;
+        height: 200px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 30px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .card-info {
+        flex: 1;
+
+        .info-item {
+            margin-bottom: 35px;
+
+            .info-title {
+                display: block;
+                font-weight: bold;
+                color: $primary-color;
+                /* Use the same color as in your form labels */
+                margin-bottom: 5px;
+            }
+
+            .info-value {
+                display: block;
+                font-size: 1rem;
+                color: $secondary-color;
+                /* Use the color that matches your design */
+            }
+        }
+    }
+
+    .card-buttons {
+        display: flex;
+        justify-content: flex-end;
+        gap: 20px;
+
+        a {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: $primary-color;
+            color: $bg-color;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+            &:hover {
+                background-color: darken($primary-color, 10%);
+            }
+        }
+    }
+}
+
+.job-info-container {
+    background: $bg-color;
+    padding: 30px;
+    width: 450px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    font-family: "Fira Sans", sans-serif;
+    color: $secondary-color;
+
+    h1 {
+        color: $secondary-color;
+        font-weight: 700;
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    .job-details, .employer-contact, .application-status {
+        margin-bottom: 20px;
+
+        p {
+            margin: 5px 0;
+            line-height: 1.5;
+            a {
+                color: $primary-color;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        h2 {
+            color: $secondary-color;
+            font-weight: 600;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+    }
+
+    hr {
+        border: none;
+        border-top: 3px solid $primary-color;
+        margin: 20px 0;
+        border-radius: 50px;
+    }
+
+    .update-button {
+        display: flex;
+        justify-content: flex-end;
+
+        button {
+            background: $primary-color;
+            color: $bg-color;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+
+            &:hover {
+                background: lighten($primary-color, 10%);
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .job-info-container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    .update-button {
+        button {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .profile-card {
+        padding: 15px;
+        max-width: 90%;
+    }
+
+    .card-info .info-title {
+        font-size: 1.2rem;
+    }
+
+    .card-info .info-value {
+        font-size: 0.9rem;
+    }
+
+    .card-buttons button {
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-card {
+        width: calc(100% - 20px);
+    }
+}
+
+
+@media (max-width: 768px) {
+    .login-container {
+        padding: 20px;
+    }
+
+    .login-form {
+        .form-group {
+            input {
+                padding: 8px;
+            }
+        }
+
+        .login-button {
+            padding: 8px;
+            font-size: 0.9rem;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .nav {
+        .menu {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #333;
+
+            .menu-item {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            &.active {
+                display: flex;
+            }
+        }
+
+        .menu-toggle {
+            display: flex;
+        }
+
+        .user-info {
+            display: none;
+        }
+    }
+}

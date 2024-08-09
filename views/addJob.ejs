@@ -1,0 +1,150 @@
+<%- include("./partials/header") %>
+<div class="main-container">
+  <div class="add-job-container">
+    <form class="add-job-form" id="add-job-form">
+      <h1>Create new job</h1>
+      <div class="form-group">
+        <label for="jobTitle">Job title *</label>
+        <input type="text" id="jobTitle" name="jobTitle" required />
+        <small class="error-message" id="jobTitle-error"></small>
+      </div>
+      <div class="form-group">
+        <label for="website">Website</label>
+        <input type="text" id="website" name="website" />
+        <small class="error-message" id="website-error"></small>
+      </div>
+
+      <div class="form-group">
+        <label for="origin">Origin</label>
+        <select name="origin" id="origin">
+          <option value="Candidature spontanée">Candidature spontanée</option>
+          <option value="job offer">Job offer</option>
+        </select>
+        <small class="error-message" id="origin-error"></small>
+      </div>
+      <div class="form-group">
+        <label for="status">Status *</label>
+        <select name="status" id="status" required>
+          <option value="Interested">Interested</option>
+          <option value="CV sent">CV sent</option>
+          <option value="Interview">Interview</option>
+          <option value="negative">Negative</option>
+        </select>
+        <small class="error-message" id="status-error"></small>
+      </div>
+      <div class="form-group">
+        <label for="expirationDate">Expiration date</label>
+        <input
+          type="date"
+          id="expirationDate"
+          name="expirationDate"
+          value="<%-new Date().toJSON().slice(0, 10)%>"
+          min="<%-new Date().toJSON().slice(0, 10)%>"
+        />
+        <small class="error-message" id="expirationDate-error"></small>
+      </div>
+      <div class="form-group">
+        <label for="comment">Comment</label>
+        <input type="text" id="comment" name="comment" />
+        <small class="error-message" id="comment-error"></small>
+      </div>
+      <h3>Employer’s contact</h3>
+      <div class="form-group">
+        <label for="name">Name *</label>
+        <input type="text" id="name" name="name" required />
+        <small class="error-message" id="name-error"></small>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" />
+        <small class="error-message" id="email-error"></small>
+      </div>
+      <div class="form-group">
+        <label for="phoneNumber">Phone number</label>
+        <input type="text" id="phoneNumber" name="phoneNumber" />
+        <small class="error-message" id="phoneNumber-error"></small>
+      </div>
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address" />
+        <small class="error-message" id="address-error"></small>
+      </div>
+      <button type="submit" class="add-job-button">Add</button>
+    </form>
+  </div>
+</div>
+<script>
+  const form = document.querySelector("#add-job-form");
+  //errors
+  //const emailError = document.querySelector("#email-error");
+  //const passwordError = document.querySelector("#password-error");
+  const smallTags = document.querySelectorAll("small");
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    //emailError.innerText = "";
+    //passwordError.innerText = "";
+    smallTags.forEach((small) => {
+      small.innerText = "";
+      console.log("here");
+    });
+    /*
+    const name = form.name.value;
+    const email = form.email.value;
+    const phoneNumber = form.phoneNumber.value;
+    const address = form.address.value;
+    const jobTitle = form.jobTitle.value;
+    const website = form.website.value;
+    const expirationDate = form.expirationDate.value;
+    const origin = form.origin.value;
+    const status = form.status.value;*/
+
+    const {
+      name: { value: name },
+      email: { value: email },
+      phoneNumber: { value: phoneNumber },
+      address: { value: address },
+      jobTitle: { value: jobTitle },
+      website: { value: website },
+      expirationDate: { value: expirationDate },
+      origin: { value: origin },
+      status: { value: status },
+    } = form.elements;
+
+    const data = {
+      name,
+      email,
+      phoneNumber,
+      address,
+      jobTitle,
+      website,
+      expirationDate,
+      origin,
+      status,
+    };
+
+    console.log(data);
+
+    fetch("/api/job", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    })
+      .then((data) => data.json())
+      .then((data) => {
+        console.log(data);
+        if (data._id) {
+          window.location.href = `/home`;
+        } else {
+          Object.keys(data).forEach((key) => {
+            document.querySelector(`#${key}-error`).innerText = data[key];
+          });
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  });
+</script>
+<%- include('./partials/footer') %>

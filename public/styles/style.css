@@ -1,0 +1,614 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@200;300;400;500;600;700&family=Merienda:wght@300..900&display=swap");
+.fira-sans-extralight {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.fira-sans-light {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.fira-sans-regular {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.fira-sans-medium, body {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.fira-sans-semibold {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.fira-sans-bold {
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #ffffff;
+}
+
+header {
+  background: #ffffff;
+  color: #030303;
+  padding: 20px 0px;
+}
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+header .logo {
+  font-size: 1.5rem;
+}
+header .logo img {
+  height: 50px;
+}
+header .nav {
+  display: flex;
+  align-items: center;
+  position: relative;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+header .nav .menu {
+  list-style: none;
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+header .nav .menu .menu-item {
+  margin-left: 20px;
+}
+header .nav .menu .menu-item a {
+  text-decoration: none;
+  color: #030303;
+  transition: color 0.3s;
+}
+header .nav .menu .menu-item a:hover {
+  color: #47B8AB;
+}
+header .nav .user-info a {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  text-decoration: none;
+}
+header .nav .user-info a .avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+header .nav .user-info a .username {
+  color: #030303;
+  transition: color 0.3s;
+}
+header .nav .user-info a .username:hover {
+  color: #47B8AB !important;
+}
+header .nav .menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  margin-left: 20px;
+}
+header .nav .menu-toggle span {
+  background: #030303;
+  border-radius: 2px;
+  height: 3px;
+  margin: 4px 0;
+  width: 25px;
+}
+
+footer {
+  background: #ffffff;
+  color: #030303;
+  padding: 40px 0;
+}
+footer .container {
+  text-align: center;
+}
+footer .container p {
+  margin: 0;
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+}
+
+.main-container, .main-home-container {
+  background: #47B8AB url("../images/tumblr-green.png") repeat 0 0;
+  animation: 100s linear 0s normal none infinite animate;
+}
+@keyframes animate {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 500px 0;
+  }
+}
+.main-home-container .home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container,
+.add-job-container,
+.sign-up-container {
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 450px;
+  padding: 40px;
+  margin: 30px 0px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+}
+
+.login-form,
+.add-job-form,
+.sign-up-form {
+  width: 100%;
+}
+.login-form h1,
+.add-job-form h1,
+.sign-up-form h1 {
+  color: #47B8AB;
+  margin-bottom: 20px;
+}
+.login-form h3,
+.add-job-form h3,
+.sign-up-form h3 {
+  color: #47B8AB;
+  margin-top: 40px;
+}
+.login-form .form-group,
+.add-job-form .form-group,
+.sign-up-form .form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+.login-form .form-group label,
+.add-job-form .form-group label,
+.sign-up-form .form-group label {
+  color: #47B8AB;
+  margin-bottom: 5px;
+  display: block;
+}
+.login-form .form-group input,
+.login-form .form-group select,
+.add-job-form .form-group input,
+.add-job-form .form-group select,
+.sign-up-form .form-group input,
+.sign-up-form .form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #47B8AB;
+  border-radius: 5px;
+  background: transparent;
+  color: #030303;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+.login-form .form-group input:focus,
+.login-form .form-group select:focus,
+.add-job-form .form-group input:focus,
+.add-job-form .form-group select:focus,
+.sign-up-form .form-group input:focus,
+.sign-up-form .form-group select:focus {
+  border-color: #399389;
+}
+.login-form .form-group .error-message,
+.add-job-form .form-group .error-message,
+.sign-up-form .form-group .error-message {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+.login-form .login-button,
+.login-form .add-job-button,
+.login-form .sign-up-button,
+.add-job-form .login-button,
+.add-job-form .add-job-button,
+.add-job-form .sign-up-button,
+.sign-up-form .login-button,
+.sign-up-form .add-job-button,
+.sign-up-form .sign-up-button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #47B8AB;
+  color: #ffffff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.login-form .login-button:hover,
+.login-form .add-job-button:hover,
+.login-form .sign-up-button:hover,
+.add-job-form .login-button:hover,
+.add-job-form .add-job-button:hover,
+.add-job-form .sign-up-button:hover,
+.sign-up-form .login-button:hover,
+.sign-up-form .add-job-button:hover,
+.sign-up-form .sign-up-button:hover {
+  background: #399389;
+}
+.login-form p,
+.add-job-form p,
+.sign-up-form p {
+  color: #787878;
+  margin-top: 20px;
+}
+.login-form p .register-link,
+.add-job-form p .register-link,
+.sign-up-form p .register-link {
+  color: #47B8AB;
+  text-decoration: none;
+  font-weight: bold;
+}
+.login-form p .register-link:hover,
+.add-job-form p .register-link:hover,
+.sign-up-form p .register-link:hover {
+  text-decoration: underline;
+}
+
+.dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  min-height: 45vh;
+  margin: 20px 0px;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  position: relative;
+  width: calc(25% - 20px);
+  min-width: 200px;
+  height: 170px;
+}
+.card h3 {
+  margin: 10px 0;
+}
+.card p {
+  color: #666666;
+}
+.card a {
+  color: #0056b3;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+}
+.card .sticker {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  color: #ffffff;
+  font-size: 0.9rem;
+}
+.card.negative .sticker {
+  background-color: #8d6561;
+}
+.card.interested .sticker {
+  background-color: #dd718e;
+}
+.card.cv-sent .sticker {
+  background-color: #64bfe0;
+}
+.card.interview .sticker {
+  background-color: #74c263;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  height: 150px;
+}
+.search-container .job-results-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 30px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+.search-container .job-results-form label {
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+.search-container .job-results-form input,
+.search-container .job-results-form select {
+  width: 150px;
+  padding: 10px;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  background: transparent;
+  color: #ffffff;
+  outline: none;
+  transition: border-color 0.3s ease;
+  cursor: pointer;
+}
+.search-container .job-results-form input:focus,
+.search-container .job-results-form select:focus {
+  border-color: #e6e6e6;
+}
+.search-container .job-results-form .search {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background: #ffffff;
+  color: #47B8AB;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.search-container .job-results-form .search:hover {
+  background: #e6e6e6;
+}
+
+.no-jobs-found {
+  font-style: italic;
+  color: #ffffff;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #ffffff;
+  padding-bottom: 30px;
+}
+.pagination a {
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.pagination a:hover {
+  color: #030303;
+}
+.pagination #pageNumbers {
+  display: flex;
+  gap: 10px;
+}
+
+.profile-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 600px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+}
+.profile-card .card-content {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.profile-card .card-image {
+  flex: 0 0 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 30px;
+}
+.profile-card .card-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.profile-card .card-info {
+  flex: 1;
+}
+.profile-card .card-info .info-item {
+  margin-bottom: 35px;
+}
+.profile-card .card-info .info-item .info-title {
+  display: block;
+  font-weight: bold;
+  color: #47B8AB;
+  /* Use the same color as in your form labels */
+  margin-bottom: 5px;
+}
+.profile-card .card-info .info-item .info-value {
+  display: block;
+  font-size: 1rem;
+  color: #030303;
+  /* Use the color that matches your design */
+}
+.profile-card .card-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+.profile-card .card-buttons a {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #47B8AB;
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+.profile-card .card-buttons a:hover {
+  background-color: #399389;
+}
+
+.job-info-container {
+  background: #ffffff;
+  padding: 30px;
+  width: 450px;
+  margin: 20px auto;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  font-family: "Fira Sans", sans-serif;
+  color: #030303;
+}
+.job-info-container h1 {
+  color: #030303;
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+.job-info-container .job-details, .job-info-container .employer-contact, .job-info-container .application-status {
+  margin-bottom: 20px;
+}
+.job-info-container .job-details p, .job-info-container .employer-contact p, .job-info-container .application-status p {
+  margin: 5px 0;
+  line-height: 1.5;
+}
+.job-info-container .job-details p a, .job-info-container .employer-contact p a, .job-info-container .application-status p a {
+  color: #47B8AB;
+  text-decoration: none;
+}
+.job-info-container .job-details p a:hover, .job-info-container .employer-contact p a:hover, .job-info-container .application-status p a:hover {
+  text-decoration: underline;
+}
+.job-info-container .job-details h2, .job-info-container .employer-contact h2, .job-info-container .application-status h2 {
+  color: #030303;
+  font-weight: 600;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+.job-info-container hr {
+  border: none;
+  border-top: 3px solid #47B8AB;
+  margin: 20px 0;
+  border-radius: 50px;
+}
+.job-info-container .update-button {
+  display: flex;
+  justify-content: flex-end;
+}
+.job-info-container .update-button button {
+  background: #47B8AB;
+  color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.job-info-container .update-button button:hover {
+  background: #6cc6bc;
+}
+
+@media (max-width: 768px) {
+  .job-info-container {
+    padding: 15px;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+  .update-button button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 768px) {
+  .profile-card {
+    padding: 15px;
+    max-width: 90%;
+  }
+  .card-info .info-title {
+    font-size: 1.2rem;
+  }
+  .card-info .info-value {
+    font-size: 0.9rem;
+  }
+  .card-buttons button {
+    padding: 8px;
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 480px) {
+  .profile-card {
+    width: calc(100% - 20px);
+  }
+}
+@media (max-width: 768px) {
+  .login-container {
+    padding: 20px;
+  }
+  .login-form .form-group input {
+    padding: 8px;
+  }
+  .login-form .login-button {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 768px) {
+  .nav .menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #333;
+  }
+  .nav .menu .menu-item {
+    margin: 10px 0;
+    text-align: center;
+  }
+  .nav .menu.active {
+    display: flex;
+  }
+  .nav .menu-toggle {
+    display: flex;
+  }
+  .nav .user-info {
+    display: none;
+  }
+}
